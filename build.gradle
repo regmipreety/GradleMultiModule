@@ -1,0 +1,45 @@
+subprojects {
+    apply plugin: 'java'
+    version = '1.0'
+    group = 'org.example'
+
+
+    repositories {
+        // Use Maven Central for resolving dependencies.
+        mavenCentral()
+    }
+
+    dependencies {
+        // Use JUnit Jupiter for testing.
+        testImplementation libs.junit.jupiter
+
+    }
+
+// Apply a specific Java toolchain to ease working on different environments.
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+
+}
+
+project(':web') {
+    dependencies {
+        implementation project(':services')
+    }
+}
+project(':services') {
+    dependencies {
+        implementation project(':data')
+    }
+}
+project(':data') {
+    dependencies {
+        implementation project(':integration')
+    }
+}
+
+
+
+

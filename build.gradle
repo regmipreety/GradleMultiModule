@@ -1,3 +1,7 @@
+plugins {
+    id 'java'
+    id 'org.sonarqube' version '4.3.1.3277'
+}
 subprojects {
     apply plugin: 'java'
     version = '1.0'
@@ -11,7 +15,7 @@ subprojects {
 
     dependencies {
         // Use JUnit Jupiter for testing.
-        testImplementation libs.junit.jupiter
+        testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
 
     }
 
@@ -22,12 +26,22 @@ subprojects {
         }
     }
 
+    sonar {
+        properties {
+//            property "sonar.login","admin"
+//            property "sonar.password","admin123"
+            property "sonar.token", "squ_09c3634dbd28cb7ea8bbf32b8af09c0c503506ba"
+        }
+    }
+
 }
+
 
 project(':web') {
     dependencies {
         implementation project(':services')
     }
+
 }
 project(':services') {
     dependencies {

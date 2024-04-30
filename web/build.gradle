@@ -29,7 +29,7 @@ dependencies {
     testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '3.11.0'
 }
 
-
+//gradle sonar -Dsonar.login=squ_8db46f7d4a6244c9d0d1e3e33aef16c731b9a6c8
 
 
 tasks.named('test') {
